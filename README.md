@@ -2,7 +2,7 @@
 Disciplina ministrada pelo professor Valdir Pedro Tobias
 Lattes: http://lattes.cnpq.br/6406295441915248
 
-## Comandos DDL (Data Definition Language)
+## 🧱 Comandos DDL (Data Definition Language)
 
 - CREATE TABLE - Criar Tabelas<br>
 ```sql
@@ -19,7 +19,7 @@ DROP TABLE nome_da_tabela;
 ```sql
 TRUNCATE TABLE tb_clientes;
 ```
-## Comandos DML (Manipulação de Dados)
+## 🛠️ Comandos DML (Manipulação de Dados)
 - INSERT - Inserir Dados
 ```sql
 -- Inserindo departamentos
@@ -48,4 +48,6 @@ WHERE id_func = 1;
 ```sql
 DELETE FROM tb_funcionarios WHERE id_func = 5;
 ```
+## 🔗 JOINs - Relacionando Tabelas
+- INNER JOIN: Retorna apenas registros com correspondência em AMBAS tabelas, deve ser usado quando você só quer os dados que têm relação.
 
