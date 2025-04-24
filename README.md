@@ -1,14 +1,17 @@
 # Banco de Dados 🎲
 Disciplina ministrada pelo professor Valdir Pedro Tobias
+
+
 Lattes: http://lattes.cnpq.br/6406295441915248
 
 ## 🧱 Comandos DDL (Data Definition Language)
 
 - CREATE TABLE - Criar Tabelas<br>
 ```sql
-CREATE TABLE tb_depto(
-    id_depto int primary key,
-    nm_depto char(40)
+CREATE TABLE tb_depto (
+  id_depto int primary key,
+  nm_depto char(40)
+)
 ```
 - DROP TABLE - Apagar Tabelas
 ```sql
@@ -29,7 +32,8 @@ INSERT INTO tb_depto VALUES(2,'depto 2');
 -- Inserindo funcionários
 INSERT INTO tb_funcionarios VALUES(1,'func1',1,1);
 ```
-- SELECT - Consultar Dados
+- SELECT - Consultar dados<br>
+
 Consulta simples: <br>
 ```sql
 SELECT * FROM tb_funcionarios;
@@ -48,6 +52,75 @@ WHERE id_func = 1;
 ```sql
 DELETE FROM tb_funcionarios WHERE id_func = 5;
 ```
-## 🔗 JOINs - Relacionando Tabelas
+## 🔗 JOINs - Relacionando Tabelas<br>
 - INNER JOIN: Retorna apenas registros com correspondência em AMBAS tabelas, deve ser usado quando você só quer os dados que têm relação.
+```sql
+select f.id_func as CODIGO, f.nm_func as NOME_FUNCIONARIO, d.nm_depto as NOME_DEPARTAMENTO
+	from tb_funcionarios f join tb_depto d on (f.id_depto = d.id_depto)
+```
 
+## 🗝️ Chaves Primárias e Estrangeiras
+
+### PRIMARY KEY
+Identifica unicamente cada registro em uma tabela.
+
+```sql
+id_socio int primary key
+```
+
+### FOREIGN KEY
+Estabelece uma relação entre tabelas.
+
+```sql
+foreign key (id_socio) references tb_socios(id_socio)
+```
+
+## 📊 Funções de Agregação
+
+| Função   | Exemplo                                | Descrição                          |
+|----------|----------------------------------------|------------------------------------|
+| COUNT()  | `SELECT COUNT(*) FROM tb_clientes;`    | Conta o número de registros        |
+| SUM()    | `SELECT SUM(vl_saldo) FROM tb_saldos;` | Soma todos os valores de uma coluna|
+| AVG()    | `SELECT AVG(vl_saldo) FROM tb_saldos;` | Calcula a média dos valores        |
+| MAX()    | `SELECT MAX(vl_saldo) FROM tb_saldos;` | Encontra o valor máximo            |
+| MIN()    | `SELECT MIN(vl_saldo) FROM tb_saldos;` | Encontra o valor mínimo            |
+
+```sql
+-- Soma dos saldos
+SELECT SUM(vl_saldo) AS total FROM tb_saldos;
+
+-- Menor saldo
+SELECT MIN(vl_saldo) AS minimo FROM tb_saldos;
+
+-- Maior saldo
+SELECT MAX(vl_saldo) AS maximo FROM tb_saldos;
+
+-- Média dos saldos
+SELECT AVG(vl_saldo) AS media FROM tb_saldos;
+
+-- Contagem de registros
+SELECT COUNT(*) AS quantidade FROM tb_saldos;
+```
+## Cláusulas Adicionais
+
+### WHERE
+Filtra registros com base em condições específicas.
+
+```sql
+select * from tb_socios where id_socio > 3
+```
+
+### ORDER BY
+Ordena os resultados da consulta.
+
+```sql
+order by nm_depto desc
+```
+
+### Subconsultas
+Consulta aninhada dentro de outra consulta.
+
+```sql
+select nm_cliente from tb_saldos
+where vl_saldo = (select max(vl_saldo) from tb_saldos) 
+```
