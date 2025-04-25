@@ -1,6 +1,7 @@
 # Banco de Dados 🎲
 Disciplina ministrada pelo professor Valdir Pedro Tobias
 
+SGBD: SQL Server Management Studio
 
 Lattes: http://lattes.cnpq.br/6406295441915248
 
