@@ -1,4 +1,4 @@
-# Banco de Dados 🗄️
+# Banco de Dados🗄️
 Disciplina ministrada pelo professor Valdir Pedro Tobias
 
 SGBD: SQL Server Management Studio
