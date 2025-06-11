@@ -59,7 +59,32 @@ DELETE FROM tb_funcionarios WHERE id_func = 5;
 select f.id_func as CODIGO, f.nm_func as NOME_FUNCIONARIO, d.nm_depto as NOME_DEPARTAMENTO
 	from tb_funcionarios f join tb_depto d on (f.id_depto = d.id_depto)
 ```
+- LEFT JOIN (ou LEFT OUTER JOIN): Retorna todos os registros da tabela da ESQUERDA e os correspondentes da tabela da direita. Se não houver correspondência, os valores da tabela da direita serão NULL.
 
+```
+SELECT f.id_func, f.nm_func, d.nm_depto
+FROM tb_funcionarios f 
+LEFT JOIN tb_depto d ON f.id_depto = d.id_depto;
+
+```
+
+- RIGHT JOIN (ou RIGHT OUTER JOIN): Retorna todos os registros da tabela da DIREITA e os correspondentes da tabela da esquerda. Se não houver correspondência, os valores da tabela da esquerda serão NULL.
+
+```
+SELECT f.id_func, f.nm_func, d.nm_depto
+FROM tb_funcionarios f 
+RIGHT JOIN tb_depto d ON f.id_depto = d.id_depto;
+
+```
+
+- FULL OUTER JOIN: Retorna todos os registros de ambas as tabelas. Quando não há correspondência, os campos da tabela sem correspondente aparecerão como NULL.
+
+```
+SELECT f.id_func, f.nm_func, d.nm_depto
+FROM tb_funcionarios f 
+FULL OUTER JOIN tb_depto d ON f.id_depto = d.id_depto;
+
+```
 ## 🗝️ Chaves Primárias e Estrangeiras
 
 ### PRIMARY KEY
